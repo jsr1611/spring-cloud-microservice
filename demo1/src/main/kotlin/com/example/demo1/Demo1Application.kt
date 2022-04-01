@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.client.RestTemplate
 
 @SpringBootApplication
-class Demo1Application{
+class Demo1Application {
 
     @Bean
     fun restTemplate() = RestTemplate()
@@ -19,11 +19,11 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-class TestController(private val restTemplate: RestTemplate){
+class TestController(private val restTemplate: RestTemplate) {
 
     @GetMapping
-    fun hello():String {
+    fun hello(): String {
         val responseFromDemo2 = restTemplate.getForObject("http://localhost:8082", String::class.java)
-        return "Helllo from Demo1 " +responseFromDemo2
+        return "Helllo from Demo1 " + responseFromDemo2
     }
 }
